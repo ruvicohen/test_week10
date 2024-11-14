@@ -1,8 +1,6 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-
 from app.db.psql_db import Base
-
 
 class UserQuote(Base):
     __tablename__ = "user_quote"

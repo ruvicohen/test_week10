@@ -2,9 +2,8 @@ from typing import Dict
 from returns.maybe import Nothing, Some, Maybe
 from toolz import pipe
 from app.db.models import Location
-from app.repository.psql.location_repository import insert_location
+from app.repository.psql_repository.location_repository import insert_location
 from app.utils.model_utils import has_all_keys
-
 
 def create_location(location_dict: Dict[str, str]) -> Location:
     return Location(

@@ -2,7 +2,7 @@ from typing import Dict
 from returns.maybe import Nothing, Some, Maybe
 from toolz import pipe
 from app.db.models import DeviceInfo
-from app.repository.psql.device_info_repository import insert_device_info
+from app.repository.psql_repository.device_info_repository import insert_device_info
 from app.utils.model_utils import has_all_keys
 
 def create_device_info(device_info_dict: Dict[str, str]) -> DeviceInfo:
@@ -19,7 +19,6 @@ def extract_device_info_from_json(device_info_json):
         "device_id": device_info_json["city"]
     }
 
-
 def convert_to_device_info(device_info_json: Dict[str, str]) -> Maybe[DeviceInfo]:
     return pipe(
         device_info_json,
@@ -29,4 +28,3 @@ def convert_to_device_info(device_info_json: Dict[str, str]) -> Maybe[DeviceInfo
 
 def create_device_info_service(device_info_json):
     return Maybe.from_optional(device_info_json).bind(convert_to_device_info).bind(insert_device_info)
-

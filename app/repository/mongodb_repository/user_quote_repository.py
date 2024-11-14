@@ -1,9 +1,8 @@
 from returns.result import Result, Success, Failure
-
 from app.db.mongo_db import all_messages
 
 
-def insert_email(email: dict) -> Result[dict, str]:
+def insert_user_quote_mongo(email: dict) -> Result[dict, str]:
     try:
         all_messages.insert_one(email)
         return Success(email)

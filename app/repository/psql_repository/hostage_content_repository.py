@@ -1,8 +1,8 @@
+from typing import List
 from returns.result import Result, Failure, Success
 from app.db.models import SuspiciousHostageContent
 from app.db.psql_db import session_maker
-from app.repository.psql.user_quote_repository import get_user_quote_by_id
-
+from app.repository.psql_repository.user_quote_repository import get_user_quote_by_id
 
 def insert_hostage_content(hostage_content: SuspiciousHostageContent) \
         -> Result[SuspiciousHostageContent, str]:
@@ -19,6 +19,6 @@ def insert_hostage_content(hostage_content: SuspiciousHostageContent) \
             session.rollback()
             return Failure(str(e))
 
-def get_hostage_content():
+def get_hostage_content() -> List[str]:
     with session_maker() as session:
         return session.query(SuspiciousHostageContent.sentence).all()

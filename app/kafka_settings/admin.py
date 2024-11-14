@@ -23,6 +23,5 @@ def init_topics():
     finally:
         client.close()
 
-
 if __name__ == '__main__':
     init_topics()

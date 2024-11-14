@@ -2,11 +2,9 @@ from typing import Dict
 from returns.maybe import Nothing, Some, Maybe
 from toolz import pipe
 from toolz.curried import partial
-
 from app.db.models import UserQuote
-from app.repository.psql.user_quote_repository import insert_user_quote
+from app.repository.psql_repository.user_quote_repository import insert_user_quote
 from app.utils.model_utils import has_all_keys
-
 
 def create_user_quote(user_quote_dict: Dict[str, str], location_id: int, device_info_id: int) -> UserQuote:
     return UserQuote(
@@ -25,7 +23,6 @@ def extract_user_quote(message) -> Dict[str, str]:
         "ip_address": message["ip_address"],
         "created_at": message["created_at"]
     }
-
 
 def convert_to_user_quote(user_quote_json: Dict[str, str],location_id: int, device_info_id: int) -> Maybe[UserQuote]:
     return pipe(

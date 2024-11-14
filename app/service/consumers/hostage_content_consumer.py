@@ -4,7 +4,6 @@ from app.kafka_settings.consume import consume
 
 load_dotenv(verbose=True)
 
-
 hostage_content_topic = os.environ['TOPIC_MESSAGE_HOSTAGE']
 
 def consume_hostage_content(topic):

@@ -56,8 +56,6 @@ def get_user_data_by_email(email: str):
         except NoResultFound:
             return None
 
-
-
 def get_user_data_by_email1(email):
     with session_maker() as session:
         user_data = (

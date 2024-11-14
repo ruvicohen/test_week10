@@ -1,7 +1,5 @@
-from typing import Dict
-from app.repository.psql.explosive_content_repository import insert_explosive_content
+from app.repository.psql_repository.explosive_content_repository import insert_explosive_content
 from app.db.models import SuspiciousExplosiveContent
-
 
 def create_suspicious_explosive_content(sentence, user_quote_id) -> SuspiciousExplosiveContent:
     return SuspiciousExplosiveContent(

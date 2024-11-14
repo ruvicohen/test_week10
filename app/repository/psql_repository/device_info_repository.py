@@ -1,8 +1,6 @@
 from returns.result import Success, Failure, Result
-
 from app.db.models import DeviceInfo
 from app.db.psql_db import session_maker
-
 
 def insert_device_info(device_info: DeviceInfo) -> Result[DeviceInfo, str]:
     with session_maker() as session:

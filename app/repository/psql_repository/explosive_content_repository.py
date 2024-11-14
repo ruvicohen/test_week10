@@ -1,12 +1,9 @@
-from collections import Counter
+from typing import List
 
 from returns.result import Result, Failure, Success
-
-from app.db.models import SuspiciousExplosiveContent, SuspiciousHostageContent
+from app.db.models import SuspiciousExplosiveContent
 from app.db.psql_db import session_maker
-from app.repository.psql.hostage_content_repository import get_hostage_content
-from app.repository.psql.user_quote_repository import get_user_quote_by_id
-
+from app.repository.psql_repository.user_quote_repository import get_user_quote_by_id
 
 def insert_explosive_content(explosive_content: SuspiciousExplosiveContent) \
         -> Result[SuspiciousExplosiveContent, str]:
@@ -23,6 +20,6 @@ def insert_explosive_content(explosive_content: SuspiciousExplosiveContent) \
             session.rollback()
             return Failure(str(e))
 
-def get_explosive_content():
+def get_explosive_content() -> List[str]:
     with session_maker() as session:
         return session.query(SuspiciousExplosiveContent.sentence).all()
