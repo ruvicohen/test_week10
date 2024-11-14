@@ -1,6 +1,6 @@
 import os
 from app.kafka_settings.consume import consume
-from app.repository.email_repository import insert_email
+from app.repository.user_quote_repository import insert_email
 
 email_topic = os.environ['TOPIC_MESSAGE_ALL']
 

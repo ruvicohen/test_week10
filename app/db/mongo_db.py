@@ -7,5 +7,5 @@ load_dotenv(verbose=True)
 DB_URL = os.environ['MONGO_URL']
 client = MongoClient(DB_URL)
 
-db = client['enemy_email']
+db = client['enemy_messages']
 all_messages = db['messages']
