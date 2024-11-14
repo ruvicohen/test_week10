@@ -38,11 +38,14 @@ def handle_insert_message_explos(message):
     create_explos_content_service(message['sentences'], user_quote_id)
 
 def get_most_common_word():
-    return pipe(
-        (get_explosive_content() + get_hostage_content()),
-        partial(map, lambda sentence: sentence[0].split()),
-        partial(chain.from_iterable),
-        Counter,
-        list,
-        lambda words: words[0]
-    )
+    try:
+        return pipe(
+            (get_explosive_content() + get_hostage_content()),
+            partial(map, lambda sentence: sentence[0].split()),
+            partial(chain.from_iterable),
+            Counter,
+            list,
+            lambda words: words[0]
+        )
+    except Exception:
+        return None

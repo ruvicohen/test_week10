@@ -8,6 +8,6 @@ app = Flask(__name__)
 app.register_blueprint(email_blueprint, url_prefix='/api/email')
 
 if __name__ == '__main__':
-    create_db()
-    create_tables()
+    #create_db()
+    #create_tables()
     app.run()

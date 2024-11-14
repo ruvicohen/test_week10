@@ -1,7 +1,6 @@
 from typing import Dict
 from returns.maybe import Nothing, Some, Maybe
 from toolz import pipe
-from toolz.curried import partial
 from app.db.models import UserQuote
 from app.repository.psql_repository.user_quote_repository import insert_user_quote
 from app.utils.model_utils import has_all_keys

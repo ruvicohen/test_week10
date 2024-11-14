@@ -1,9 +1,11 @@
-from dictalchemy import asdict
 from returns.maybe import Maybe
 from returns.result import Result, Success, Failure
 from app.db.models import UserQuote, Location, DeviceInfo, SuspiciousExplosiveContent, SuspiciousHostageContent
 from app.db.psql_db import session_maker
 from sqlalchemy.exc import NoResultFound
+
+from app.utils.model_utils import convert_user_quote_to_json
+
 
 def insert_user_quote(user_quote: UserQuote) -> Result[UserQuote, str]:
     with session_maker() as session:
@@ -73,4 +75,4 @@ def get_user_data_by_email1(email):
         if not user_data:
             return None
 
-        return asdict(user_data)
+        return convert_user_quote_to_json(user_data)
