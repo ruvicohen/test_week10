@@ -18,3 +18,7 @@ def insert_hostage_content(hostage_content: SuspiciousHostageContent) \
         except Exception as e:
             session.rollback()
             return Failure(str(e))
+
+def get_hostage_content():
+    with session_maker() as session:
+        return session.query(SuspiciousHostageContent.sentence).all()

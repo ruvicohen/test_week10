@@ -23,6 +23,7 @@ def handle_producers(message):
     if check_sentence_with_partial_word(message['sentences'], 'hostage'):
         message = reorder_sentences_by_danger(message, 'hostage')
         produce_hostage_content(message)
+
     if check_sentence_with_partial_word(message['sentences'], 'explos'):
         message = reorder_sentences_by_danger(message, 'explos')
         produce_explosive_content(message)
