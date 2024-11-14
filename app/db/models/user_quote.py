@@ -12,8 +12,8 @@ class UserQuote(Base):
     ip_address = Column(String)
     created_at = Column(String)
 
-    location_id = Column(Integer, ForeignKey("location.location_id"))
-    device_info_id = Column(Integer, ForeignKey("device_info.device_info_id"))
+    location_id = Column(Integer, ForeignKey("location.location_id", ondelete='CASCADE'))
+    device_info_id = Column(Integer, ForeignKey("device_info.device_info_id", ondelete='CASCADE'))
 
     location = relationship("Location", back_populates="user_quote")
     device_info = relationship("DeviceInfo", back_populates="user_quote")

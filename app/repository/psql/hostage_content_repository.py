@@ -1,4 +1,4 @@
-from returns.result import Result, Failure
+from returns.result import Result, Failure, Success
 from app.db.models import SuspiciousHostageContent
 from app.db.psql_db import session_maker
 from app.repository.psql.user_quote_repository import get_user_quote_by_id
@@ -14,7 +14,7 @@ def insert_hostage_content(hostage_content: SuspiciousHostageContent) \
             session.add(hostage_content)
             session.commit()
             session.refresh(hostage_content)
-            return Result.success(hostage_content)
+            return Success(hostage_content)
         except Exception as e:
             session.rollback()
             return Failure(str(e))

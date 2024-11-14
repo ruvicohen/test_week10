@@ -1,4 +1,4 @@
-from returns.result import Result, Failure
+from returns.result import Result, Failure, Success
 
 from app.db.models import SuspiciousExplosiveContent
 from app.db.psql_db import session_maker
@@ -15,7 +15,7 @@ def insert_explosive_content(explosive_content: SuspiciousExplosiveContent) \
             session.add(explosive_content)
             session.commit()
             session.refresh(explosive_content)
-            return Result.success(explosive_content)
+            return Success(explosive_content)
         except Exception as e:
             session.rollback()
             return Failure(str(e))

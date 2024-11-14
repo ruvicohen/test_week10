@@ -11,6 +11,4 @@ class DeviceInfo(Base):
     os = Column(String)
     device_id = Column(String)
 
-    user_quote_id = Column(Integer, ForeignKey("user_quote.user_quote_id"))
-
-    user_quote = relationship("UserQuote", back_populates="device_info")
+    user_quote = relationship("UserQuote", back_populates="device_info", uselist=False)
