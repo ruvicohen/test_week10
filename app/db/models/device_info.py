@@ -1,8 +1,6 @@
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
-
 from app.db.psql_db import Base
-
 
 class DeviceInfo(Base):
     __tablename__ = "device_info"

@@ -1,8 +1,6 @@
 from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
-
 from app.db.psql_db import Base
-
 
 class SuspiciousExplosiveContent(Base):
     __tablename__ = "suspicious_explosive_content"

@@ -1,8 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-
 from app.db.psql_db import Base
-
 
 class Location(Base):
     __tablename__ = "location"

@@ -2,7 +2,7 @@ import re
 from collections import Counter
 from itertools import chain
 from toolz import pipe
-from toolz.curried import partial, reduce
+from toolz.curried import partial
 from app.repository.psql_repository.explosive_content_repository import get_explosive_content
 from app.repository.psql_repository.hostage_content_repository import get_hostage_content
 from app.service.psql_service.device_info_service import create_device_info_service

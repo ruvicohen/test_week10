@@ -1,5 +1,4 @@
 from typing import List
-
 from returns.result import Result, Failure, Success
 from app.db.models import SuspiciousExplosiveContent
 from app.db.psql_db import session_maker
